@@ -1,0 +1,102 @@
+<html>
+<head>
+<title>BE-SMART | IMPROVE YOURSELF</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Trirong">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lobster">
+<style>
+body {
+background-image: url('../images/login_background.png');
+background-size: cover;
+background-repeat: no-repeat;
+text-align: center
+}
+.login_part {
+background-color: #ffffff;
+margin-left: 30%;
+margin-right: 30%;
+margin-top: 5%;
+height: 70%;
+background-attachment: fixed;
+}
+.image {
+width: 50%;
+margin-top: 10%;
+}
+.login {
+ font-family: "Lobster", serif;
+ font-weight: 900;
+ font-size: 25px;
+ text-shadow: 1px 1px 2px #074496;
+ color: #074496 ;
+}
+.email_password {
+ font-family: "Trirong", serif;
+ font-weight: 900;
+ font-size: 15px;
+ color: #074496 ;
+ margin-left: -50px;
+}
+.input {
+border-radius: 3px;
+border: none;
+border-bottom: 1px solid black;
+margin-left: 50px;
+font-size: 15px;
+
+}
+
+.login_button {
+ background:#052F66;
+ border-style: outset;
+ border-radius: 5px;
+ color: #ffffff;
+ width: 100px;
+ height: 40px;
+}
+.login_button:hover {
+background: #074496;
+}
+.signup {
+color: #737373;
+}
+.select {
+    width: 265px;
+    height: 20px;
+    margin-left: 25px !important;
+}
+</style>
+</head>
+<body>
+<section class="login_part">
+<img class="image" src="../images/be_smart_crop.png">
+<p class="login"> Login </p>
+<form action="/login" method="POST">
+<label> <span class="email_password">Email: &nbsp &nbsp &nbsp</span>
+<input class="input"size="30" type="email" name="login_email" placeholder="Email" required>
+</label>
+<br>
+<br>
+<label>
+<span class="email_password">Password: </span>
+<input class="input" size="30" type="password" name="login_password" placeholder="Password" required>
+</label>
+<br>
+<br>
+<label>
+    <span class="email_password"> Account Type: </span>
+ <select class="input input1 select" name="type" required>
+     <option value="instructor"> Instructor</option>
+     <option value="student"> Student</option>
+ </select>
+ </label>
+<br>
+<br>
+<br>
+<input class="login_button" size="30" type="submit" value="Login">
+</form>
+<br>
+<p class="signup"> Doesn't have any account yet? <a href="signup.html"> Sign Up </a> </p>
+</section>
+</body>
+</html>

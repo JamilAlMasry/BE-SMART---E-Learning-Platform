@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+    <head>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+<!--<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+--><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>     
+<title>
+            BE SMART | IMPROVE YOURSELF
+        </title>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Trirong">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Caveat">
+        <style> 
+        body {
+background-image: url('../images/login_background.png');
+background-size: cover;
+background-repeat: no-repeat;
+
+}
+.section {    
+      background-color: white;
+   margin-left: 30%;
+     margin-top: 5%;
+      margin-right: 30%;
+       height: 80%;    
+        }
+ .label {
+ font-family: "Trirong", serif;
+ font-weight: 900;
+ font-size: 15px;
+ color: #074496 ;
+ margin-left: 5%;
+
+}
+.nav-color {
+                background-color: #052F66;
+                
+            }
+.input {
+font-style:unset;
+font-weight: 400;
+border-radius: 3px;
+border: none;
+border-bottom: 1px solid black;
+margin-left: 5%;
+font-size: 15px;
+}
+.create_button {
+ background:#052F66;
+ border-style: outset;
+ border-radius: 5px;
+ color: #ffffff;
+ width: 100px;
+ height: 40px;
+ margin-left: 20%;
+ font-size: 12px;
+}
+.create_button:hover {
+background: #074496;
+}
+.quote {
+    font-family: "caveat";
+    text-align: center;
+    color: #074496;
+    font-size: 50px;
+}
+        </style>
+    </head>
+    <body>
+        <nav class="navbar navbar-inverse nav-color">
+            <div class="container-fluid ">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="/company-info">BE SMART</a>
+                </div>
+                <ul class="nav navbar-nav nav-color">
+                    <li><a href="/homepage.html"> Home</a></li>
+                    <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Courses <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                          <li><a href="/createcourse">Create Course</a></li>
+                          <li><a href="courselist">Manage Course</a></li>
+                         
+                        </ul>
+                      </li>
+                    <li ><a href="#"> Enrolled Students</a></li>
+                    <li><a href="#"> Payment History</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown"><a  class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user"></span> Edit Profile <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="edituserinformation">Edit User Information</a></li>
+                        <li><a href="edituserpassword">Edit Password</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="login.html"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+                  </ul>
+                </div>
+              </nav>
+            </div>
+        </nav>
+        <section class="section">
+            
+            <p class="quote"> <b>Teach the World !</b></p>
+        <form action="instructormodifycourse" method="POST">
+            <label>
+                <input type="hidden" value="<%= details[0].id %>" name="courseid">
+            </label>
+            <label>
+                <span class="label">Course Name: </span>
+                 <br>
+                 <input size="40" class="input" type="text" value="<%= details[0].name %>" name="coursename" required> 
+            </label>
+            <br>
+            <label>
+                <br>
+                <span class="label"> Course Description: </span>
+                <br> 
+                <textarea style="width:325px"  class="input"  name="coursedescription"><%= details[0].description %> </textarea> <br>
+            </label>
+             <br>
+            <label>  
+                 <span class="label">Course Requirements:</span>
+                 <br>
+                  <input  size="40" class="input" type="text" value="<%= details[0].requirement %>" name="coursereq"> <br>
+                </label> 
+                <br>
+            <label> 
+                 <span class="label"> Course Price: ($)</span>
+                 <br>
+                 <input  style="width:325px"  class="input" type="number" value="<%= details[0].price %>" name="courseprice" required>
+                 </label>
+                 <br>
+                 <br>
+            <label> 
+                  <span class="label">Course Category:</span>
+                  <br>
+                   <!-- <input  size="40"  class="input" type="text" name="coursecategory" > -->
+                   <select style="width:325px"  class="input" name="coursecategory" required>
+                    <% for(const i in category) { %>
+                    <% if(category[i].name == details[0].category){ %>
+                        <option value="<%= category[i].id %>" selected> <%= category[i].name %> </option>
+                        
+                        <%} else { %>
+                        <option value="<%= category[i].id %>"> <%= category[i].name %> </option>
+                  <%} %>
+                <%  } %>
+                   </select>
+                </label>
+                <br>
+                <br>
+            <label> 
+                  <span class="label">Course Language:</span>
+                  <br>
+                  <!-- <input  size="40"  class="input" type="text" name="courselanguage"> -->
+                  <select style="width:325px"  class="input" name="courselanguage" required>
+                    <% for(const i in language) { %>
+                        <% if(language[i].name == details[0].language){ %>
+                        <option value="<%= language[i].id %>"> <%= language[i].name %> </option>
+                            <% }else { %>
+                        <option value="<%= language[i].id %>"> <%= language[i].name %> </option>
+                  <%  } %>
+                  <% } %>
+                   </select>
+                </label>
+                <br><br>
+                <label>
+                    
+                </label>
+            <label>
+                <input class="create_button" type="submit" value="Modify Course">
+            </label>
+        </form>
+    </section>
+    </body>
+</html>

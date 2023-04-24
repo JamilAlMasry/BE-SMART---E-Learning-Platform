@@ -1,0 +1,89 @@
+<html>
+    <head>
+   
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        
+        <title> BE SMART | IMPROVE YOURSELF</title>
+        <style>
+            .nav-color {
+                background-color: #052F66;
+                
+            }
+            .divborder {
+                margin-left:20px;
+                margin-top: 20px;
+                border: 1px solid #000000;
+                background-color: white;
+                float: left;
+            }
+            body {
+background-image: url('../images/login_background.png');
+background-size: cover;
+background-repeat: no-repeat;
+text-align: center
+}
+        </style>
+    </head>
+    <body>
+      <nav class="navbar navbar-inverse nav-color">
+        <div class="container-fluid ">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/company-info">BE SMART</a>
+            </div>
+            <ul class="nav navbar-nav nav-color">
+                <li><a href="/homepage.html"> Home</a></li>
+                <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Courses <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                      <li><a href="/createcourse">Create Course</a></li>
+                      <li><a href="courselist">Manage Course</a></li>
+                     
+                    </ul>
+                  </li>
+                <li ><a href="#"> Enrolled Students</a></li>
+                <li><a href="#"> Payment History</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown"><a  class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user"></span> Edit Profile <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="edituserinformation">Edit User Information</a></li>
+                  <li><a href="edituserpassword">Edit Password</a></li>
+                  </ul>
+                </li>
+                <li><a href="login.html"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+    </nav>
+        <% for(const i in courseList) { %>
+        <div class="card divborder" id="<%= i %>" style="width: 38rem;">
+            <img class="card-img-top" src="../images/be_smart_crop.png" width="150px" height="150px" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title"  > <%= courseList[i].name %></h5>
+              <p class="card-text"> <%= courseList[i].description %></p>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">Requirements: <%= courseList[i].requirement %> </li>
+              <li class="list-group-item"> Category: <%= courseList[i].category %> </li>
+              <li class="list-group-item">Language: <%=courseList[i].language %></li>
+            </ul>
+            <div class="card-body">
+             
+              <a href="managecoursedetails" onclick="getcoursename()" class="card-link"> Manage Course</a>
+            </div>
+          </div>
+          <%  } %>
+
+    </body>
+    <script type="text/javascript">
+      function getcoursename(){
+        var rowId = 
+                    event.target.parentNode.parentNode.id;
+        var thecoursename = document.getElementById(rowId).querySelectorAll(".card-title");
+        var coursenaming = thecoursename[0].innerHTML;
+        document.cookie = "coursename="+coursenaming+"";
+      }
+    </script>
+</html>

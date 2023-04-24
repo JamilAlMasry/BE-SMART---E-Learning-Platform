@@ -1,0 +1,103 @@
+<html>
+    <head>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <title> BE SMART | IMPROVE YOURSELF</title>
+        <script>
+            function getthecoursename(){
+
+            }
+        </script>
+        <style>
+              body {
+background-image: url('../images/login_background.png');
+background-size: cover;
+background-repeat: no-repeat;
+
+}
+             .nav-color {
+                background-color: #052F66;
+                
+            }
+            .divstyle {
+                border: 1px solid black;
+                width: 15%;
+                border-radius: 20px;
+                margin-left: 5%;
+                float: left;
+                margin-top: 10%;
+                height: 30%;
+                text-align: center;
+                padding-top: 20px;
+                font-size: 20px;
+            }
+            .divstyle:hover {
+                background-color:#052F66;
+                color:white;
+            }
+            .main {
+                margin-left: 12%;
+            }
+            .thesection {
+                background-color: white;
+   margin-left: 5%;
+     margin-top: 2%;
+      margin-right: 5%;
+       height: 85%; 
+            }
+            .coursename {
+                text-align: center;
+                padding-top: 10%;
+                font-size: 30px;
+            }
+        </style>
+    </head>
+    <body>
+        <nav class="navbar navbar-inverse nav-color">
+            <div class="container-fluid ">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="/company-info">BE SMART</a>
+                </div>
+                <ul class="nav navbar-nav nav-color">
+                    <li><a href="/homepage.html"> Home</a></li>
+                    <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Courses <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                          <li><a href="/createcourse">Create Course</a></li>
+                          <li><a href="courselist">Manage Course</a></li>
+                         
+                        </ul>
+                      </li>
+                    <li ><a href="#"> Enrolled Students</a></li>
+                    <li><a href="#"> Payment History</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown"><a  class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user"></span> Edit Profile <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="edituserinformation">Edit User Information</a></li>
+                        <li><a href="edituserpassword">Edit Password</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="login.html"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+                  </ul>
+                </div>
+              </nav>
+            </div>
+        </nav>
+        <section class="thesection">
+            <p class="coursename" > <%= CourseName %></p>
+     <a href="editcoursedetails"><div class="divstyle main"> Edit Course Details <br> <br> <br> <br>
+        <i class="material-icons" style="font-size:36px">edit</i>
+     </div></a>
+     <a href="addsection"><div class="divstyle"> Add Course Section <br> <br> <br> <br>
+        <i class="material-icons" style="font-size:36px">add_to_queue</i></div></a>
+     <div class="divstyle"> Add Files <br> <br> <br>
+        <br>
+        <i class="material-icons" style="font-size:36px">attachment</i></div>
+        <a href="addcoursequiz"><div class="divstyle"> Add Quiz Questions <br> <br> <br> <br>
+            <i class="material-icons" style="font-size:36px">assignment</i>
+        </section>
+    </body>
+</html>

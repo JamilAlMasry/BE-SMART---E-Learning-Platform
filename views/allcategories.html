@@ -1,0 +1,107 @@
+<html>
+    <head>
+        <title>
+                BE SMART | IMPROVE YOURSELF
+        </title>
+        <meta name='viewport' content='width=device-width, initial-scale=1'>
+<script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Trirong">
+        <style>
+            .label {
+ font-family: "Trirong", serif;
+ font-weight: 900;
+ font-size: 35px;
+ color: #074496 ;
+
+
+}
+            .nav-color {
+                background-color: #052F66;
+                
+            }
+           .section {
+            margin-top: 5%;
+            margin-left: 5%;
+            margin-right: 5%;
+            height: 50%;
+           }
+           .division {
+            background-image: url('../images/login_background.png');
+background-size: cover;
+background-repeat: no-repeat;
+text-align: center;
+height: 50%;
+width: 15%;
+padding-top: 5%;
+color: white;
+border:1px solid #052F66 ;
+border-radius: 20px;
+margin-left: 2%;
+margin-top: 2%;
+float: left;
+           }
+           .division:hover {
+            border: 3px solid grey;
+           }
+          .arrow {
+            margin-left: 50%;
+          }
+          .arrow:hover {
+            color: grey;
+          }
+        </style>
+    </head>
+    <body>
+        <nav class="navbar navbar-inverse nav-color">
+            <div class="container-fluid ">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="/company-info">BE SMART</a>
+                </div>
+                <ul class="nav navbar-nav nav-color">
+                    <li><a href="/studenthomepage"> Home</a></li>
+                   
+                    <li ><a href="#"> Enrolled Courses</a></li>
+                    <li><a href="#"> Payment History</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown"><a  class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user"></span> Edit Profile <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                      <li><a href="edituserinformation">Edit User Information</a></li>
+                      <li><a href="edituserpassword">Edit Password</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="login.html"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+                  </ul>
+                </div>
+              </nav>
+            </div>
+        </nav>
+        <p class="label"> All Categories </p>
+        <section class="section">
+          
+            <% for(const i in data) { %>
+               
+           <a id="kifak" href="coursecategory" onclick="getcategoryname()">
+            <div id="<%= i %>">
+             <div id="hey" class="division">
+                    <p id="h" class="categoryname"> <%= data[i].name %></p>
+            </div></div>
+          </a> 
+        
+            <% } %>
+        </section>
+    </body>
+    <script type="text/javascript">
+        function getcategoryname(){
+          var rowId = 
+                      event.target.parentNode.id;
+                      document.cookie="hello="+rowId+"";
+          var thecategoryname = document.getElementById(rowId).querySelectorAll(".categoryname");
+          var categorynaming = thecategoryname[0].innerHTML;
+          document.cookie = "categoryname="+categorynaming+"";
+        }
+      </script>
+</html>

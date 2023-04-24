@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+    <head>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+<!--<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+--><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>     
+<title>
+            BE SMART | IMPROVE YOURSELF
+        </title>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Trirong">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Caveat">
+        <style> 
+        body {
+background-image: url('../images/login_background.png');
+background-size: cover;
+background-repeat: no-repeat;
+
+}
+.section {    
+      background-color: white;
+   margin-left: 28%;
+     margin-top: 10%;
+      margin-right: 28%;
+       height: 280px;    
+       text-align: center;
+        }
+ .label {
+ font-family: "Trirong", serif;
+ font-weight: 900;
+ font-size: 25px;
+ color: #074496 ;
+ margin-left: 5%;
+ text-align: center;
+
+}
+.nav-color {
+                background-color: #052F66;
+                
+            }
+.input {
+font-style:unset;
+font-weight: 400;
+border-radius: 3px;
+border: none;
+border-bottom: 1px solid black;
+margin-left: 1%;
+font-size: 15px;
+}
+.addsection_button {
+ background:#052F66;
+ border-style: outset;
+ border-radius: 5px;
+ color: #ffffff;
+ width: 100px;
+ height: 40px;
+ 
+ font-size: 12px;
+}
+.addsection_button:hover {
+background: #074496;
+}
+.quote {
+    font-family: "caveat";
+    text-align: center;
+    color: #074496;
+    font-size: 50px;
+}
+        </style>
+    </head>
+    <body>
+        <nav class="navbar navbar-inverse nav-color">
+            <div class="container-fluid ">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="/company-info">BE SMART</a>
+                </div>
+                <ul class="nav navbar-nav nav-color">
+                    <li><a href="/homepage.html"> Home</a></li>
+                    <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Courses <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                          <li><a href="/createcourse">Create Course</a></li>
+                          <li><a href="courselist">Manage Course</a></li>
+                         
+                        </ul>
+                      </li>
+                    <li ><a href="#"> Enrolled Students</a></li>
+                    <li><a href="#"> Payment History</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown"><a  class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user"></span> Edit Profile <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="edituserinformation">Edit User Information</a></li>
+                        <li><a href="edituserpassword">Edit Password</a></li>
+                       
+                      </ul>
+                    </li>
+                    <li><a href="login.html"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+                  </ul>
+                </div>
+              </nav>
+            </div>
+        </nav>
+        <section class="section">
+            
+            <p class="quote"> <b>Build Your Sections !</b></p>
+            <form action="addcoursesection" method="post">
+                <label>
+                   <span class="label"> Add Section to '<%= sampleData %>' </span> <br> <br><br>
+                    <input class="input" type="text" size="50" name="sectionname">
+                </label>
+                <label>
+                    <input class="addsection_button"type="submit" value="Add Section">
+                </label>
+            </form>
+        
+    </section>
+    </body>
+</html>

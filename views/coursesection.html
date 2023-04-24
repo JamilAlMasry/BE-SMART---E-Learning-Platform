@@ -1,0 +1,108 @@
+<html>
+    <head>
+        <title> BE SMART | IMPROVE YOURSELF </title>
+        <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <style>
+             body {
+background-image: url('../images/login_background.png');
+background-size: cover;
+background-repeat: no-repeat;
+
+}
+.section {    
+      background-color: white;
+   margin-left: 5%;
+     margin-top: 2%;
+      margin-right: 5%;
+       height: 85%;    
+        }
+        .nav-color {
+                background-color: #052F66;
+                
+            }
+            .divs {
+                background-image: url('../images/login_background.png');
+                margin-left: 20%;
+                margin-right: 20%;
+                color: white;
+                text-align: center;
+                height: 5%;
+                font-size: 150%;
+            }
+            .margin {
+                margin-top: 5%;
+            }
+            .quiz {
+              width: 100%;
+              height: 5%;
+              background-color: #052F66;
+              color: white;
+              font-size: 150%;
+          
+            }
+        </style>
+    </head>
+    <body onload="paidornot()">
+        <nav class="navbar navbar-inverse nav-color">
+            <div class="container-fluid ">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="/company-info">BE SMART</a>
+                </div>
+                <ul class="nav navbar-nav nav-color">
+                    <li><a href="/studenthomepage"> Home</a></li>
+                   
+                    <li ><a href="#"> Enrolled Courses</a></li>
+                    <li><a href="#"> Payment History</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown"><a  class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user"></span> Edit Profile <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                      <li><a href="edituserinformation">Edit User Information</a></li>
+                      <li><a href="edituserpassword">Edit Password</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="login.html"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+                  </ul>
+                </div>
+              </nav>
+            </div>
+        </nav>
+        
+        <section class="section">
+            <div class="divs"> Course Sections </div>
+            <% for(const i in data) { %>
+            <div id="<%= i %>" class="divs margin"> <p class="sectionname"> <%= data[i].name %></p></div>
+            <% } %>
+
+            <a href="quizquestions"><button id="quiz" class="quiz" type="button">Take Quiz</button></a>
+        </section>
+        <script>
+            function paidornot(){
+            var pay = getCookie("paycount");
+            var cer = getCookie("certified");
+            if( pay == '0' || cer == "1"){
+                document.getElementById('quiz').style.visibility = 'hidden';
+            }
+            
+        }
+            function getCookie(cname) {
+  let name = cname + "=";
+  let decodedCookie = decodeURIComponent(document.cookie);
+  let ca = decodedCookie.split(';');
+  for(let i = 0; i <ca.length; i++) {
+    let c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
+}
+        </script>
+    </body>
+</html>

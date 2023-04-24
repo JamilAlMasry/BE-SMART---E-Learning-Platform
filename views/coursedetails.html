@@ -1,0 +1,234 @@
+<html>
+    <head>
+        <meta name='viewport' content='width=device-width, initial-scale=1'>
+        <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+                <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+                <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+                <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Trirong">
+        <style>
+            body {
+background-image: url('../images/login_background.png');
+background-size: cover;
+background-repeat: no-repeat;
+
+}
+.section {    
+      background-color: white;
+   margin-left: 5%;
+     margin-top: 2%;
+      margin-right: 5%;
+       height: 85%;    
+        }
+        .nav-color {
+                background-color: #052F66;
+                
+            }
+        .name {
+            font-size: 330%;
+            margin-left: 5%;
+           
+        }
+        .desc {
+            font-size: 200%;
+            margin-left: 5%;
+            margin-top: 7%;
+        }
+        .req {
+            font-size: 200%;
+            margin-left: 5%;
+            margin-top: 5%;
+        }
+        .cat {
+            font-size: 150%;
+            margin-left: 5%;
+            margin-top: 2%;
+        }
+        .price {
+            font-size: 150%;
+            margin-left: 5%;
+            margin-top: 3%;
+        }
+        .modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  height: 40%;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+.button {
+  width: 100%;
+  background-color: #052F66;
+  color: white;
+  height: 7%;
+}
+.button:hover {
+  width: 100%;
+  background-color: white;
+  color: #052F66;
+  height: 7%;
+}
+        </style>
+    </head>
+    <body onload="enrollornot()">
+        <nav class="navbar navbar-inverse nav-color">
+            <div class="container-fluid ">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="/company-info">BE SMART</a>
+                </div>
+                <ul class="nav navbar-nav nav-color">
+                    <li><a href="/studenthomepage"> Home</a></li>
+                   
+                    <li ><a href="#"> Enrolled Courses</a></li>
+                    <li><a href="#"> Payment History</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown"><a  class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user"></span> Edit Profile <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                      <li><a href="edituserinformation">Edit User Information</a></li>
+                      <li><a href="edituserpassword">Edit Password</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="login.html"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+                  </ul>
+                </div>
+              </nav>
+            </div>
+        </nav>
+        
+<section class="section">
+       <p class="name"> <%= data[0].name %></p>
+       <p class="desc"><%= data[0].description %></p>
+       <p class="req">Requirements: <%= data[0].requirement %></p>
+       <p class="cat">Category: <%= data[0].category %></p>
+       <p class="cat">Language: <%= data[0].language %></p>
+       <p class="price">Price: <%=data[0].price %> $</p>
+    <button id="myBtn" class="button" type="button">Enroll</button>
+    <br><br>
+    <button id="getcertificate" class="button"> Get Certificate</button>
+
+<!-- Trigger/Open The Modal -->
+
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <form action="enrollcourse" method="post">
+        <label> <b> What type of Enrollment? </b>
+            <br>
+            <br>
+            <br>
+            <input type="radio" name="enroll" value="paid"> Pay Cost (<%= data[0].price%>$), View Course Content and Get Certificate
+            <br>
+            <br>
+            <br>
+            <input type="radio" name="enroll" value="unpaid"> No Cost, View Course Content, No Certificate
+        </label>
+        <br>
+        <br>
+        <br>
+        <input type="submit" value="Enroll ">
+       
+    </form>
+  
+  </div>
+
+</div>
+    </section>
+    <script>
+        function enrollornot(){
+            var enroll = getCookie("enrollcount");
+            var certified = getCookie("certified");
+            if( enroll == '1'){
+                btn.innerHTML = "View Content";
+            }
+            if(certified != '1'){
+              cer.style.visibility = "hidden";
+            }
+            
+        }
+        // Get the modal
+        var modal = document.getElementById("myModal");
+        
+        // Get the button that opens the modal
+        var btn = document.getElementById("myBtn");
+        var cer = document.getElementById("getcertificate");
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+        cer.onclick = function(){
+          window.location.href='coursecertificate';
+        }
+        // When the user clicks the button, open the modal 
+        btn.onclick = function() {
+            var enroll = getCookie("enrollcount");
+            if( enroll == '1'){
+                window.location.href='coursesection';
+            }
+         else {
+          modal.style.display = "block";
+        }
+        }
+        
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function() {
+          modal.style.display = "none";
+        }
+        
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+          if (event.target == modal) {
+            modal.style.display = "none";
+          }
+        }
+        function getCookie(cname) {
+  let name = cname + "=";
+  let decodedCookie = decodeURIComponent(document.cookie);
+  let ca = decodedCookie.split(';');
+  for(let i = 0; i <ca.length; i++) {
+    let c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
+}
+        </script>
+    </body>
+</html>

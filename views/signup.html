@@ -1,0 +1,123 @@
+<html>
+<head>
+<title>BE-SMART | IMPROVE YOURSELF</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Trirong">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lobster">
+<style> 
+body {
+background-image: url('../images/login_background.png');
+background-size: cover;
+background-repeat: no-repeat;
+text-align: center
+}
+.signup_part {
+background-color: #ffffff;
+margin-left: 500px;
+margin-right: 500px;
+margin-top: 80px;
+height: 600px;
+background-attachment: fixed;
+}
+.image {
+width: 300px;
+margin-top: 30px;
+}
+.signup {
+ font-family: "Lobster", serif;
+ font-weight: 900;
+ font-size: 25px;
+ text-shadow: 1px 1px 2px #074496;
+ color: #074496 ;
+}
+.email_password {
+ font-family: "Trirong", serif;
+ font-weight: 900;
+ font-size: 15px;
+ color: #074496 ;
+ margin-left: -50px;
+}
+.input {
+border-radius: 3px;
+border: none;
+border-bottom: 1px solid black;
+
+margin-left: 65px;
+font-size: 15px;
+
+}
+.select {
+    width: 265px;
+    height: 20px;
+    margin-left: 40px !important;
+}
+.input1 {
+margin-left: 5px !important;
+}
+.signup_button {
+ background:#052F66;
+ border-style: outset;
+ border-radius: 5px;
+ color: #ffffff;
+ width: 100px;
+ height: 40px;
+}
+.signup_button:hover {
+background: #074496;
+}
+.login {
+color: #737373;
+}
+
+</style>
+</head>
+<body>
+<section class="signup_part">
+<img class="image" src="../images/be_smart_crop.png">
+<p class="signup"> Sign Up </p>
+<form action="/signup" method="POST">
+<label>
+<span class="email_password">First Name:</span>
+<input class="input" size="30" name="first_name" type="text" placeholder="First Name" required>
+</label>
+<br>
+<br>
+<label>
+<span class="email_password">Last Name:</span>
+<input class="input" size="30" name="last_name" type="text" placeholder="Last Name" required>
+</label>
+<br>
+<br>
+<label> 
+<span class="email_password">Email: &nbsp &nbsp &nbsp &nbsp </span>
+<input class="input" size="30" name= "signup_email" type="email" placeholder="Email" required>
+</label>
+<br>
+<br>
+<label>
+<span class="email_password"> Password: &nbsp </span>
+<input class="input" size="30" name="signup_password" type="password" placeholder="Password" required>
+</label>
+<br>
+<br>
+<label>
+<span class="email_password"> Confirm Password: &nbsp </span>
+<input class="input input1" size="30" name= "signup_confirm_password" type="password" placeholder="Password" required>
+</label>
+<br>
+<br>
+<label>
+   <span class="email_password"> Account Type: </span>
+<select class="input select" name="type" required>
+    <option value="instructor"> Instructor</option>
+    <option value="student"> Student</option>
+</select>
+</label>
+<br>
+<br>
+<br>
+<input class="signup_button" size="30" type="submit" value="Sign Up">
+</form>
+
+<p class="login"> Already have an account? <a href="login.html"> Login </a> </p></section>
+</body>
+</html>

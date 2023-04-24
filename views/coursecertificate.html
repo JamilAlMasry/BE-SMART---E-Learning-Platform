@@ -1,0 +1,143 @@
+<html>
+    <head>
+        <title> BE SMART | IMPROVE YOURSELF </title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Trirong">
+        <link href='https://fonts.googleapis.com/css?family=Merriweather' rel='stylesheet'>
+        <link href='https://fonts.googleapis.com/css?family=Merriweather' rel='stylesheet'>
+        <link href='https://fonts.googleapis.com/css?family=Ms Madi' rel='stylesheet'>
+        <style>
+             body {
+background-image: url('../images/login_background.png');
+background-size: cover;
+background-repeat: no-repeat;
+
+}
+.section {    
+      background-color: white;
+      background-image: url('../images/thecertificate.png');
+      background-size: cover;
+background-repeat: no-repeat;
+background-position: center;
+   margin-left: 5%;
+     margin-top: 2%;
+      margin-right: 5%;
+       height: 85%;    
+        }
+        .nav-color {
+                background-color: #052F66;
+                
+            }
+            .label {
+ font-family: "Trirong", serif;
+ font-weight: 900;
+ font-size: 25px;
+ color: #074496 ;
+ margin-left: 40%;
+ text-align: center;
+ margin-top: 5%;
+}
+.theform {
+    margin-left: 5%;
+}
+.divimage {
+    text-align: center;
+    
+}
+.div2 {
+    font-family: "Merriweather";
+    text-align: center;
+    font-size: 170%;
+}
+.div3 {
+    font-family: 'Libre Baskerville';
+    text-align: center;
+    font-size: 500%;
+    font-weight: 500;
+}
+.div4 {
+    font-family: "Merriweather";
+    font-size: 120%;
+    text-align: center;
+}
+.div5 {
+    font-family: 'Libre Baskerville';
+    font-size: 250%;
+    text-align: center;
+}
+.div6 {
+    font-family: "Merriweather";
+    font-size: 120%;
+    text-align: center;
+}
+.div7 {
+    font-family: 'Libre Baskerville';
+    font-size: 250%;
+    text-align: center;
+}
+.div8 {
+    text-align: right;
+    margin-right: 20%;
+    margin-top: 3%;
+}
+.div9 {
+    font-family: 'Ms Madi';
+    text-align: right;
+    font-weight: 600;
+    margin-right: 20%;
+    
+}
+.div10 {
+    font-family: "Merriweather";
+    font-size: 80%;
+    margin-left: 10%;
+    margin-top: 5%;
+}
+        </style>
+    </head>
+    <body>
+        <nav class="navbar navbar-inverse nav-color">
+            <div class="container-fluid ">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="/company-info">BE SMART</a>
+                </div>
+                <ul class="nav navbar-nav nav-color">
+                    <li><a href="/studenthomepage"> Home</a></li>
+                   
+                    <li ><a href="#"> Enrolled Courses</a></li>
+                    <li><a href="#"> Payment History</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown"><a  class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user"></span> Edit Profile <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                      <li><a href="edituserinformation">Edit User Information</a></li>
+                      <li><a href="edituserpassword">Edit Password</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="login.html"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+                  </ul>
+                </div>
+              </nav>
+            </div>
+        </nav>
+        
+        <section class="section">
+            <div class="divimage">  <img class="image" width="25%" src="../images/be_smart_crop.png"></div><br>
+            <div class="div2"><p> CERTIFIES THAT </p></div>
+            <div class="div3"><p><%= username[0].firstname %> <%= username[0].lastname %></p> </div>
+            <div class="div4"> <p> has successfully completed the course </p></div>
+            <div class="div5"> <p> <%= coursename %></p></div>
+            <div class="div6"> <p> with the instructor</p></div>
+            <div class="div7"><p><%= instructorname[0].firstname %> <%= instructorname[0].lastname %> </p></div>
+            <div class="div8"> BE-SMART CEO </div>
+            <div class="div9"><span style="text-align:center">CEO J.M</span> </div>
+           <div class="div10"> <p> <%= date[0].date %></p></div>
+          
+        </section>
+       
+    </body>
+</html>

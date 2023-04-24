@@ -1,0 +1,87 @@
+<html>
+    <head>
+        <title> BE SMART | IMPROVE YOURSELF </title>
+        <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Trirong">
+        <style>
+             body {
+background-image: url('../images/login_background.png');
+background-size: cover;
+background-repeat: no-repeat;
+
+}
+.section {    
+      background-color: white;
+   margin-left: 5%;
+     margin-top: 2%;
+      margin-right: 5%;
+       height: 85%;    
+        }
+        .nav-color {
+                background-color: #052F66;
+                
+            }
+            .label {
+ font-family: "Trirong", serif;
+ font-weight: 900;
+ font-size: 25px;
+ color: #074496 ;
+ margin-left: 40%;
+ text-align: center;
+ margin-top: 5%;
+}
+.theform {
+    margin-left: 5%;
+}
+        </style>
+    </head>
+    <body>
+        <nav class="navbar navbar-inverse nav-color">
+            <div class="container-fluid ">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="/company-info">BE SMART</a>
+                </div>
+                <ul class="nav navbar-nav nav-color">
+                    <li><a href="/studenthomepage"> Home</a></li>
+                   
+                    <li ><a href="#"> Enrolled Courses</a></li>
+                    <li><a href="#"> Payment History</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown"><a  class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user"></span> Edit Profile <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                      <li><a href="edituserinformation">Edit User Information</a></li>
+                      <li><a href="edituserpassword">Edit Password</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="login.html"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+                  </ul>
+                </div>
+              </nav>
+            </div>
+        </nav>
+        
+        <section class="section">
+           <div class="label"> <%= sampleData %> </div>
+          <form class="theform" method="post" action="submitquiz">
+            <br>
+            <% for(const i in question) { %>
+            <label> <%= i  %>. <%= question[i].name %> <br>
+            <input type="radio" value="<%= question[i].choiceone %>" name="question<%=i%>"> <%= question[i].choiceone %> <br>
+            <input type="radio" value="<%= question[i].choicetwo %>" name="question<%=i%>"> <%= question[i].choicetwo %> <br>
+            <input type="radio" value="<%= question[i].choicethree %>" name="question<%=i%>"> <%= question[i].choicethree %> <br>
+            <input type="radio" value="<%= question[i].choicefour %>" name="question<%=i%>"> <%= question[i].choicefour %> <br>
+            </label> <br> <br>
+           
+           <% } %>
+           <input type="submit" value="Submit Quiz">
+          </form>
+        
+        
+        </section>
+       
+    </body>
+</html>
